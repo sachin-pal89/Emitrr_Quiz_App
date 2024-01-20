@@ -6,8 +6,8 @@ const Profile = () => {
   return (
     <>
       <div className='w-full h-screen'>
-        <div className='p-28 mx-40'>
-          <div className='p-20 flex flex-col  text-center'>
+        <div className='pt-25 pb-20 mx-40'>
+          <div className='pt-40 pb-10 px-20 flex flex-col  text-center'>
             <p className='text-[50px] font-semibold tracking-wide text-blue-800'>Sachin Pal</p>
             <p className='text-lg text-black font-semibold tracking-wide'>@SacPal89</p>
             <p className='text-lg text-blue-500 font-bold tracking-wide mt-4'>Python</p>
