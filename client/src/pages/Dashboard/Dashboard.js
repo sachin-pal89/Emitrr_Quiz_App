@@ -31,6 +31,10 @@ const Dashboard = () => {
       case 'settings':
         componentToRender = <Settings />;
         break;
+      
+      default:
+        componentToRender = <Profile />;
+        break;
     }
 
   return (
