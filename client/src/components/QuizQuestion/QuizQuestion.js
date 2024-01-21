@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const QuizQuestion = () => {
+const QuizQuestion = ({ handleStagePhases}) => {
 
     const [lastQuestion, setLastQuestion] = useState(false);
 
@@ -13,6 +13,7 @@ const QuizQuestion = () => {
             <div className='w-[60%] h-full flex justify-center items-center'>
                 <div className='transform -translate-z-20 shadow-lg flex flex-col
                     items-center justify-center'>
+                    <span className='bg-green-300 px-3 py-1 font-semibold border-2 border-green-700 text-white rounded-lg'>Easy</span>
                     <p className='p-3 text-[20px] font-semibold text-blue-900'>1. Who developed Python Programming Language?</p>
                     <ul className='py-4 px-5 w-full'>
                         <li className='border-2 border-gray-500 hover:shadow-md cursor-pointer
@@ -26,7 +27,9 @@ const QuizQuestion = () => {
                     </ul>
                     <div className='w-full flex flex-col items-center justify-center'>
                         {lastQuestion ? (
-                            <button className='mb-4 p-3 w-[30%] text-white bg-blue-800 hover:bg-blue-900 hover:shadow-md rounded-lg'>
+                            <button className='mb-4 p-3 w-[30%] text-white bg-blue-800 hover:bg-blue-900 hover:shadow-md rounded-lg'
+                                onClick={() => handleStagePhases('completed')}
+                            >
                                 Submit
                             </button>
                         ): (
