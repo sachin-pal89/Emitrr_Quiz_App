@@ -80,7 +80,7 @@ const SignUp = () => {
                         py-2 px-3 mx-2 focus:ring-blue-500 focus:border-blue-500 block'
                 >
                     <option value="Python">Python</option>
-                    <option value="C++">C++</option>
+                    <option value="CPP">C++</option>
                     <option value="Java">Java</option>
                     <option value="JavaScript">JavaScript</option>
               </select>

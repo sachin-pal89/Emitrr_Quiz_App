@@ -62,10 +62,20 @@ const loginUser = asyncHandler(async (req, res) => {
         res.status(400)
         throw new Error('Invalid username or password')
     }
-
+    
     const user = await User.findOne({ username })
 
+    if(!user) {
+        res.status(400)
+        throw new Error('Invalid user');
+    }
+
     const passwordCheck = await bcrypt.compare(password, user.password)
+
+    if(!passwordCheck){
+        res.status(400)
+        throw new Error('Invalid password');
+    }
 
     if (user && passwordCheck) {
         res.status(200).json(user)
@@ -112,6 +122,48 @@ const changePassword = asyncHandler(async (req, res) => {
     else {
         res.status(400)
         throw new Error("user not found")
+    }
+})
+
+//@desc add new course for user
+//@route POST /newCourse
+//@access public
+const newCourse = asyncHandler( async (req, res) => {
+
+    const { username, lang_name } = req.body
+
+    if(!username || !lang_name) {
+        res.status(400)
+        throw new Error('Provide proper details')
+    }
+
+    // Get the user first 
+    const user = await User.findOne({ username })
+
+    if(user) {
+
+        const newLangQuiz = {
+            lang_name: lang_name,
+            score: 0,
+            curr_question_no: 0,
+        }
+
+        const updateUserLang = await User.updateOne(
+            { username: username, 'lang.lang_name': { $ne: lang_name}},
+            { $push: { lang: newLangQuiz }},
+        )
+
+        if(updateUserLang){
+            res.status(200).json(updateUserLang)
+        }
+        else {
+            res.status(400)
+            throw new Error('New Language not added')
+        }
+    }
+    else {
+        res.status(400)
+        throw new Error('User not found')
     }
 })
 
@@ -167,4 +219,4 @@ const getUser = asyncHandler(async (req, res) => {
     }
 })
 
-export { registerUser, loginUser, changePassword, resetCourse, getUser }
+export { registerUser, loginUser, changePassword, newCourse, resetCourse, getUser }

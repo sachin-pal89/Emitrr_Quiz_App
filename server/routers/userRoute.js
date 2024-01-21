@@ -1,5 +1,5 @@
 import express from 'express'
-import { registerUser, loginUser, changePassword, resetCourse, getUser } from '../controllers/userController.js'
+import { registerUser, loginUser, changePassword, newCourse, resetCourse, getUser } from '../controllers/userController.js'
 
 const router = express.Router()
 
@@ -11,6 +11,9 @@ router.route('/signup')
 
 router.route('/changePassword')
     .post(changePassword)
+
+router.route('/newCourse')
+    .post(newCourse)
 
 router.route('/resetCourse')
     .post(resetCourse)

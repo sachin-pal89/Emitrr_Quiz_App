@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import SideBar from '../../components/SideBar/SideBar'
 import Profile from '../../components/Profile/Profile'
 import Quiz from '../../components/Quiz/Quiz'
 import Leaderboard from '../../components/Leaderboard/Leaderboard'
 import Settings from '../../components/Settings/Settings'
+import axios from 'axios'
 
-const Dashboard = () => {
+const Dashboard = ({ user, handleQuizData, quiz }) => {
   
   const [section, setSection] = useState('profile');
 
@@ -13,11 +14,18 @@ const Dashboard = () => {
     setSection(newSection);
   }
 
+  const getQuizData = async () => {
+
+    const response = await axios.get('http://localhost:5000/lang/allQuestions');
+
+    handleQuizData(response.data);
+  }
+
   let componentToRender;
 
     switch(section) {
       case 'profile':
-        componentToRender = <Profile />;
+        componentToRender = <Profile user={user} quiz={quiz}/>;
         break;
       
       case 'quiz':
@@ -25,17 +33,24 @@ const Dashboard = () => {
         break;
       
       case 'leaderboard':
-        componentToRender = <Leaderboard />;
+        componentToRender = <Leaderboard quiz={quiz} user={user}/>;
         break;
       
       case 'settings':
-        componentToRender = <Settings />;
+        componentToRender = <Settings user={user}/>;
         break;
       
       default:
         componentToRender = <Profile />;
         break;
     }
+
+
+  useEffect(() => {
+    
+    getQuizData();
+
+  }, [])
 
   return (
     <>

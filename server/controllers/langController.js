@@ -128,6 +128,22 @@ const getQuizQuestions = asyncHandler( async (req, res) => {
     }
 })
 
+//@desc get all quiz questions
+//@route GET /lang/allQuestions
+//@access public
+const getAllQuizQuestions = asyncHandler( async (req, res) => {
+
+    // Getting quiz questions 
+    const lang = await Lang.find({})
+
+    if(lang){
+        res.status(200).json(lang)
+    }
+    else {
+        res.status(400)
+        throw new Error("Language quiz doesn't exists")
+    }
+})
 
 //@desc Get LeaderBoard
 //@route POST /lang/leaderboard
@@ -159,6 +175,7 @@ const getLeaderboard = asyncHandler( async (req, res) => {
             const leaderboardData = leaderboardUser.map((user) => ({
                 username: user.username,
                 score: user.lang.score,
+                total_score: lang.total_score,
             }))
 
             res.status(200).json(leaderboardData);
@@ -175,4 +192,4 @@ const getLeaderboard = asyncHandler( async (req, res) => {
 
 })
 
-export { setNewQuiz, setQuizQuestion, getQuizQuestions, getLeaderboard }
+export { setNewQuiz, setQuizQuestion, getQuizQuestions, getAllQuizQuestions, getLeaderboard }

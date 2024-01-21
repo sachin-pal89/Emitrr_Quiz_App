@@ -1,5 +1,5 @@
 import express from 'express';
-import { setNewQuiz, setQuizQuestion, getQuizQuestions, getLeaderboard } from '../controllers/langController.js';
+import { setNewQuiz, setQuizQuestion, getQuizQuestions, getAllQuizQuestions, getLeaderboard } from '../controllers/langController.js';
 
 const router = express.Router();
 
@@ -11,6 +11,9 @@ router.route('/addQuestion')
 
 router.route('/questions')
     .post(getQuizQuestions)
+
+router.route('/allQuestions')
+    .get(getAllQuizQuestions)
 
 router.route('/leaderboard')
     .post(getLeaderboard)
