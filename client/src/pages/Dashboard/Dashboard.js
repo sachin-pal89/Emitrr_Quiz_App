@@ -29,7 +29,7 @@ const Dashboard = ({ user, handleQuizData, quiz }) => {
         break;
       
       case 'quiz':
-        componentToRender = <Quiz />;
+        componentToRender = <Quiz quiz={quiz} user={user}/>;
         break;
       
       case 'leaderboard':
@@ -41,7 +41,7 @@ const Dashboard = ({ user, handleQuizData, quiz }) => {
         break;
       
       default:
-        componentToRender = <Profile />;
+        componentToRender = <Profile user={user} quiz={quiz}/>;
         break;
     }
 

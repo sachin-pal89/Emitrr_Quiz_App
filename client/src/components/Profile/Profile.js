@@ -17,7 +17,7 @@ const Profile = ({ user, quiz }) => {
     Python: PythonIcon,
     CPP: CPPIcon,
     Java: JavaIcon,
-    Javascript: JavaScriptIcon
+    JavaScript: JavaScriptIcon
   }
 
 

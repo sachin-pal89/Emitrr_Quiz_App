@@ -3,7 +3,7 @@ import LanguageSelect from '../LanguageSelect/LanguageSelect';
 import Instructions from '../Instructions/Instructions';
 import QuizQuestion from '../QuizQuestion/QuizQuestion';
 
-const Quiz = () => {
+const Quiz = ({ quiz, user}) => {
 
   const [stage, setStage] = useState('langselect');
   const [lang, setLang] = useState('Python');

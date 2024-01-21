@@ -2,22 +2,46 @@ import React, { useState } from 'react'
 import LangPalIcon from '../../assets/images/LangPalIcon.jpeg'
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios'
 
-const SignUp = () => {
+const SignUp = ({ handleUser }) => {
 
   const [showPassword, setShowPassword] = useState(false);
   const [fullname, setFullName] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
+  const [lang_name, setLangName] = useState('Python');
+  const navigate = useNavigate();
 
-  const checkUser = () => {
-    alert(`SignUp Checked for ${fullname} with ${username} with ${password}`);
+  const checkUser = async () => {
+    
+    try {
+
+      const response = await axios.post('http://localhost:5000/signup', {
+        fullname: fullname,
+        username: username,
+        password: password,
+        lang_name: lang_name,
+      })
+
+      handleUser(response.data)
+      navigate("/dashboard")
+
+    } catch (error) {
+
+      console.error('Error while making the API request:', error);
+    }
+
   }
 
-  const handleToogleVisibility = () => {
+  const handleToogleVisibility = () => {   
     setShowPassword(!showPassword)
   }
+  
+  const handleLangChange = (data) => {
+    setLangName(data)
+  } 
 
   return (
     <>
@@ -78,6 +102,7 @@ const SignUp = () => {
                     className='mt-1 text-center shadow-lg border-2 bg-gray-50 border-6
                         border-gray-800 text-gray-900 text-sm rounded-lg
                         py-2 px-3 mx-2 focus:ring-blue-500 focus:border-blue-500 block'
+                        onChange={(e) => handleLangChange(e.target.value)}
                 >
                     <option value="Python">Python</option>
                     <option value="CPP">C++</option>
