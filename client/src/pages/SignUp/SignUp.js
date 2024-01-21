@@ -22,7 +22,7 @@ const SignUp = () => {
   return (
     <>
       <div className='h-scrren w-screen'>
-        <div className='mx-20 my-36 px-20 py-20 flex flex-col justify-center items-center'>
+        <div className='mx-20 my-16 px-20 py-20 flex flex-col justify-center items-center'>
           <img src={LangPalIcon} alt="Logo" className='w-11 h-11'/>
           <div className='flex flex-col mt-3'>
             <div className='flex flex-col px-5 py-5'>
@@ -71,6 +71,19 @@ const SignUp = () => {
                     { showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
                 </div>
               </div>
+            </div>
+            <div className='flex flex-col px-5 pt-3'>
+              <span className='my-1 px-2 text-sm text-gray-600'>Language to learn</span>
+              <select name="languages" id="languages"
+                    className='mt-1 text-center shadow-lg border-2 bg-gray-50 border-6
+                        border-gray-800 text-gray-900 text-sm rounded-lg
+                        py-2 px-3 mx-2 focus:ring-blue-500 focus:border-blue-500 block'
+                >
+                    <option value="Python">Python</option>
+                    <option value="C++">C++</option>
+                    <option value="Java">Java</option>
+                    <option value="JavaScript">JavaScript</option>
+              </select>
             </div>
             <Link
               className='bg-[#1F51FF] hover:bg-[#0047AB] text-center

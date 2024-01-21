@@ -7,23 +7,23 @@ import { NotificationManager } from 'react-notifications';
 
 const Settings = () => {
   
-  const [userNameInput, setUserNameInput] = useState(false);
-  const [changeusername, setChangeUserName] = useState('');
+  const [passwordInput, setPasswordInput] = useState(false);
+  const [changepassword, setChangePassword] = useState('');
   
-  const handleChangeUsername = (val) => {
-    setChangeUserName(val);
+  const handleChangePassword = (val) => {
+    setChangePassword(val);
   }
 
-  const handleUserNameInput = () => {
-    setUserNameInput(!userNameInput);
+  const handlePasswordInput = () => {
+    setPasswordInput(!passwordInput);
   }
 
   const resetCourse = () => {
     NotificationManager.success('Course Reset Done', 'Success', 2000);
   }
 
-  const changeUserNameNotify = () => {
-    NotificationManager.success('Username changed', 'Success', 2000);
+  const changePasswordNotify = () => {
+    NotificationManager.success('Password changed', 'Success', 2000);
   }
   
 
@@ -40,21 +40,21 @@ const Settings = () => {
               <p className='text-[20px] font-bold p-4'>Reset Courses</p>
             </div>
             <div className='flex flex-row items-center cursor-pointer'
-              onClick={() => handleUserNameInput()}
+              onClick={() => handlePasswordInput()}
             >
               <ManageAccountsIcon sx={{fontSize: 28}}/>
-              <p className='text-[20px] font-bold p-4'>Change Username</p>
+              <p className='text-[20px] font-bold p-4'>Change Password</p>
             </div>
-            {userNameInput ? (
+            {passwordInput ? (
               <div className='flex flex-row p-4'>
                 <input type="text" className='px-2 border-2 mr-2 border-gray-400 rounded-lg shadow-lg'
-                  value={changeusername}
-                  onChange={(e) => handleChangeUsername(e.target.value)}
+                  value={changepassword}
+                  onChange={(e) => handleChangePassword(e.target.value)}
                 />
                 <button className='bg-blue-800 text-white p-2 rounded-lg hover:shadow-md'
                   onClick={() => {
-                    changeUserNameNotify();
-                    handleUserNameInput();
+                    changePasswordNotify();
+                    handlePasswordInput();
                   }}
                 >
                   Done
