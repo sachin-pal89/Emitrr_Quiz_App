@@ -4,7 +4,11 @@
 LangPal is a language learning quiz format website that provides an interactive platform for users to enhance their language skills through quizzes. The website offers a variety of quizzes for different programming languages, allowing users to test and improve their knowledge in a gamified format.
 
 
+## Note
 
+- I have not Commit my .env file because of which one has to create a .env file. 
+- In that file add a variable MONGO_URI = "Your_mongo_collection_path" to get access of database.
+- I am attaching the Langs collection file which you can add in your database to access the quiz question set
 
 ## Installation
 
