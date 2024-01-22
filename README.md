@@ -6,7 +6,7 @@ LangPal is a language learning quiz format website that provides an interactive 
 
 ## Note
 
-- I have not Commit my .env file because of which one has to create a .env file. 
+- I have not Commit my .env file because of privacy reasons but one can create a .env file. 
 - In that file add a variable MONGO_URI = "Your_mongo_collection_path" to get access of database.
 - I am attaching the Langs collection file which you can add in your LangPal database to access the quiz question set
 
