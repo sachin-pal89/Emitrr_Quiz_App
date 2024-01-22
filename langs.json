@@ -1,0 +1,561 @@
+[{
+  "_id": {
+    "$oid": "65ad689617df234dd5db539a"
+  },
+  "lang_name": "JavaScript",
+  "total_question": 10,
+  "total_score": 28,
+  "questions": [
+    {
+      "question_no": 1,
+      "question": "Javascript is an _______ language?",
+      "options": [
+        "[\"Object-Oriented\",\"Object-Based\",\"Procedural\",\"None of the above\"]"
+      ],
+      "answer": "Object-Oriented",
+      "level": "Easy",
+      "score": 1,
+      "_id": {
+        "$oid": "65ad69c917df234dd5db53a0"
+      }
+    },
+    {
+      "question_no": 2,
+      "question": "Which of the following keywords is used to define a variable in Javascript?",
+      "options": [
+        " [\"var\",\"let\",\"Both A and B\",\"None of the above\"]"
+      ],
+      "answer": "Both A and B",
+      "level": "Easy",
+      "score": 1,
+      "_id": {
+        "$oid": "65ae7bcbc54639e7ce932103"
+      }
+    },
+    {
+      "question_no": 3,
+      "question": "Arrays in JavaScript are defined by which of the following statements?",
+      "options": [
+        "[\"It is an ordered list of values\",\"It is an ordered list of objects\",\"It is an ordered list of string\",\"It is an ordered list of functions\"]"
+      ],
+      "answer": "It is an ordered list of values",
+      "level": "Easy",
+      "score": 1,
+      "_id": {
+        "$oid": "65ae7cafc54639e7ce932108"
+      }
+    },
+    {
+      "question_no": 4,
+      "question": "Will the following JavaScript code work?  {\n        var js = (function(x) {return x*x;}(10));\n}",
+      "options": [
+        "[\"Exception will be thrown\",\"Memory leak\",\"Error\",\"Yes, perfectly\"]"
+      ],
+      "answer": "Yes, perfectly",
+      "level": "Medium",
+      "score": 3,
+      "_id": {
+        "$oid": "65ae7d72c54639e7ce93210e"
+      }
+    },
+    {
+      "question_no": 5,
+      "question": "Where is Client-side JavaScript code is embedded within HTML documents?",
+      "options": [
+        "[\"A URL that uses the special javascript:code\",\"A URL that uses the special javascript:protocol\",\"A URL that uses the special javascript:encoding\",\"A URL that uses the special javascript:stack\"]"
+      ],
+      "answer": "A URL that uses the special javascript:protocol",
+      "level": "Hard",
+      "score": 5,
+      "_id": {
+        "$oid": "65ae7ec4c54639e7ce932115"
+      }
+    },
+    {
+      "question_no": 6,
+      "question": "Which of the following scoping type does JavaScript use?",
+      "options": [
+        "[\"Sequential\",\"Segmental\",\"Lexical\",\"Literal\"]"
+      ],
+      "answer": "Lexical",
+      "level": "Easy",
+      "score": 1,
+      "_id": {
+        "$oid": "65ae7f65c54639e7ce93211d"
+      }
+    },
+    {
+      "question_no": 7,
+      "question": "Which the method is used to refresh the webpage?",
+      "options": [
+        "[\"window.reload()\",\"location.reload()\",\"window.refresh()\",\"location.refresh()\"]"
+      ],
+      "answer": "location.reload()",
+      "level": "Medium",
+      "score": 3,
+      "_id": {
+        "$oid": "65ae803bc54639e7ce932126"
+      }
+    },
+    {
+      "question_no": 8,
+      "question": "Which is the correct JavaScript statement to display \"Hello Boss!\" into an alert box?",
+      "options": [
+        "[\"alert(\"Hello Boss!\");\",\"alert('Hello Boss!');\",\"alert(Text:'Hello Boss!');\",\"Both A. and B.\"]"
+      ],
+      "answer": "Both A. and B.",
+      "level": "Medium",
+      "score": 3,
+      "_id": {
+        "$oid": "65ae82e4c54639e7ce93213a"
+      }
+    },
+    {
+      "question_no": 9,
+      "question": "Which JavaScript statement(s) is correct to create Date object(s) with new Date() constructor?",
+      "options": [
+        "[\"new Date()\",\"new Date(year, month, day, hours, minutes, seconds, milliseconds)\",\"new Date(milliseconds)\",\"All of the above\"]"
+      ],
+      "answer": "All of the above",
+      "level": "Hard",
+      "score": 5,
+      "_id": {
+        "$oid": "65ae8366c54639e7ce932145"
+      }
+    },
+    {
+      "question_no": 10,
+      "question": "Why JavaScript Engine is needed?",
+      "options": [
+        "[\"Both Compiling & Interpreting the JavaScript\",\"Parsing the javascript\",\"Interpreting the JavaScript\",\"Compiling the JavaScript\"]"
+      ],
+      "answer": "Interpreting the JavaScript",
+      "level": "Hard",
+      "score": 5,
+      "_id": {
+        "$oid": "65ae83efc54639e7ce932151"
+      }
+    }
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "65ad69e117df234dd5db53a3"
+  },
+  "lang_name": "Python",
+  "total_question": 10,
+  "total_score": 28,
+  "questions": [
+    {
+      "question_no": 1,
+      "question": "How is a code block indicated in Python?",
+      "options": [
+        "[\"Brackets\",\"Indentation\",\"Key\",\"None of the above\"]"
+      ],
+      "answer": "Indentation",
+      "level": "Easy",
+      "score": 1,
+      "_id": {
+        "$oid": "65ad6a7617df234dd5db53a6"
+      }
+    },
+    {
+      "question_no": 2,
+      "question": "Which of the following types of loops are not supported in Python?",
+      "options": [
+        "[\"for\",\"while\",\"do-while\",\"None of the above\"]"
+      ],
+      "answer": "do-while",
+      "level": "Easy",
+      "score": 1,
+      "_id": {
+        "$oid": "65ae0cebddc2d978fe0eb0cb"
+      }
+    },
+    {
+      "question_no": 3,
+      "question": "All keywords in Python are in _________",
+      "options": [
+        "[\"Capitalized\",\"lower case\",\"UPPER CASE\",\"None of the above\"]"
+      ],
+      "answer": "None of the above",
+      "level": "Easy",
+      "score": 1,
+      "_id": {
+        "$oid": "65ae84bbc54639e7ce932156"
+      }
+    },
+    {
+      "question_no": 4,
+      "question": "Which of the following character is used to give single-line comments in Python?",
+      "options": [
+        "[\"//\",\"#\",\"!\",\"/*\"]"
+      ],
+      "answer": "#",
+      "level": "Easy",
+      "score": 1,
+      "_id": {
+        "$oid": "65ae8515c54639e7ce93215c"
+      }
+    },
+    {
+      "question_no": 5,
+      "question": "Which function is called when the following Python program is executed? { \n   f = foo()\n   format(f)\n}",
+      "options": [
+        "[\"str()\",\"format()\",\"__str__()\",\"__format__()\"]"
+      ],
+      "answer": "__str__()",
+      "level": "Medium",
+      "score": 3,
+      "_id": {
+        "$oid": "65ae8597c54639e7ce932163"
+      }
+    },
+    {
+      "question_no": 6,
+      "question": "What is the maximum possible length of an identifier in Python?",
+      "options": [
+        "[\"79 characters\",\"31 characters\",\"63 characters\",\"none of the mentioned\"]"
+      ],
+      "answer": "none of the mentioned",
+      "level": "Medium",
+      "score": 3,
+      "_id": {
+        "$oid": "65ae85fec54639e7ce93216b"
+      }
+    },
+    {
+      "question_no": 7,
+      "question": "What will be the output of the following Python code?\n{ print(\"Hello {0[0]} and {0[1]}\".format(('foo', 'bin'))) }",
+      "options": [
+        "[\"Hello (‘foo’, ‘bin’) and (‘foo’, ‘bin’)\",\"Error\",\"Hello foo and bin\",\"none of the mentioned\"]"
+      ],
+      "answer": "Hello foo and bin",
+      "level": "Medium",
+      "score": 3,
+      "_id": {
+        "$oid": "65ae867cc54639e7ce932174"
+      }
+    },
+    {
+      "question_no": 8,
+      "question": "What will be the output of the following Python code?\n{ x = [[0], [1]]\nprint((' '.join(list(map(str, x))),))\n}",
+      "options": [
+        "[\"01\",\"[0] [1]\",\"(’01’)\",\"(‘[0] [1]’,)\"]"
+      ],
+      "answer": "(‘[0] [1]’,)",
+      "level": "Hard",
+      "score": 5,
+      "_id": {
+        "$oid": "65ae86e6c54639e7ce93217e"
+      }
+    },
+    {
+      "question_no": 9,
+      "question": "As what datatype are the *args stored, when passed into a function?",
+      "options": [
+        "[\"List\",\"Tuple\",\"Dictionary\",\"None of above\"]"
+      ],
+      "answer": "Tuple",
+      "level": "Hard",
+      "score": 5,
+      "_id": {
+        "$oid": "65ae873ac54639e7ce932189"
+      }
+    },
+    {
+      "question_no": 10,
+      "question": "What will be the result of the following expression in Python “2 ** 3 + 5 ** 2”?",
+      "options": [
+        "[\"65536\",\"33\",\"169\",\"None of above\"]"
+      ],
+      "answer": "33",
+      "level": "Hard",
+      "score": 5,
+      "_id": {
+        "$oid": "65ae8771c54639e7ce932195"
+      }
+    }
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "65ad6ad313a5a6eb464fbe02"
+  },
+  "lang_name": "CPP",
+  "total_question": 10,
+  "total_score": 28,
+  "questions": [
+    {
+      "question_no": 1,
+      "question": "Identify the incorrect constructor type.",
+      "options": [
+        "[\"Friend constructor\",\"Default constructor\",\"Parameterized constructor\",\"Copy constructor\"]"
+      ],
+      "answer": "Friend constructor",
+      "level": "Easy",
+      "score": 1,
+      "_id": {
+        "$oid": "65ad6b8f13a5a6eb464fbe08"
+      }
+    },
+    {
+      "question_no": 2,
+      "question": "Which of the following is used for comments in C++?",
+      "options": [
+        "[\"/* comment */\",\"// comment */\",\"// comment\",\"both // comment or /* comment */\"]"
+      ],
+      "answer": "both // comment or /* comment */",
+      "level": "Easy",
+      "score": 1,
+      "_id": {
+        "$oid": "65ae88f4c54639e7ce9321aa"
+      }
+    },
+    {
+      "question_no": 3,
+      "question": "Which of the following correctly declares an array in C++?",
+      "options": [
+        "[\"array{10};\",\"array array[10];\",\"int array;\",\"int array[10];\"]"
+      ],
+      "answer": "int array[10];",
+      "level": "Easy",
+      "score": 1,
+      "_id": {
+        "$oid": "65ae896bc54639e7ce9321af"
+      }
+    },
+    {
+      "question_no": 4,
+      "question": "Using which of the following keywords can an exception be generated?",
+      "options": [
+        "[\"threws\",\"throw\",\"catch\",\"throws\"]"
+      ],
+      "answer": "throw",
+      "level": "Medium",
+      "score": 3,
+      "_id": {
+        "$oid": "65ae89e5c54639e7ce9321b5"
+      }
+    },
+    {
+      "question_no": 5,
+      "question": "Which concept allows you to reuse the written code in C++?",
+      "options": [
+        "[\"Inheritance\",\"Polymorphism\",\"Abstraction\",\"Encapsulation\"]"
+      ],
+      "answer": "Inheritance",
+      "level": "Medium",
+      "score": 3,
+      "_id": {
+        "$oid": "65ae8a32c54639e7ce9321bc"
+      }
+    },
+    {
+      "question_no": 6,
+      "question": "The C++ code which causes abnormal termination/behaviour of a program should be written under _________ block.",
+      "options": [
+        "[\"catch\",\"throw\",\"try\",\"finally\"]"
+      ],
+      "answer": "try",
+      "level": "Medium",
+      "score": 3,
+      "_id": {
+        "$oid": "65ae8a8ac54639e7ce9321c4"
+      }
+    },
+    {
+      "question_no": 7,
+      "question": "Identify the storage classes that have global visibility.",
+      "options": [
+        "[\"extern\",\"auto\",\"register\",\"static\"]"
+      ],
+      "answer": "extern",
+      "level": "Hard",
+      "score": 5,
+      "_id": {
+        "$oid": "65ae8afbc54639e7ce9321cd"
+      }
+    },
+    {
+      "question_no": 8,
+      "question": "Which of the following functions can be inherited from base class?",
+      "options": [
+        "[\"Constructor\",\"Destructor\",\"Static\",\"None\"]"
+      ],
+      "answer": "None",
+      "level": "Hard",
+      "score": 5,
+      "_id": {
+        "$oid": "65ae8b96c54639e7ce9321d7"
+      }
+    },
+    {
+      "question_no": 9,
+      "question": "Which of the following is not a type of inheritance?",
+      "options": [
+        "[\"Multiple\",\"Multilevel\",\"Distributed\",\"Hierarchical\"]"
+      ],
+      "answer": "Distributed",
+      "level": "Hard",
+      "score": 5,
+      "_id": {
+        "$oid": "65ae8bd8c54639e7ce9321e2"
+      }
+    },
+    {
+      "question_no": 10,
+      "question": "Choose the option below which is not a member of class.",
+      "options": [
+        "[\"Friend function\",\"Static function\",\"Virtual function\",\"Const function\"]"
+      ],
+      "answer": "Friend function",
+      "level": "Easy",
+      "score": 1,
+      "_id": {
+        "$oid": "65ae8c77c54639e7ce9321ee"
+      }
+    }
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "65ad6ba813a5a6eb464fbe0b"
+  },
+  "lang_name": "Java",
+  "total_question": 10,
+  "total_score": 28,
+  "questions": [
+    {
+      "question_no": 1,
+      "question": "Which one of the following is not a Java feature?",
+      "options": [
+        "[\"Object-oriented\",\"Use of pointers\",\"Portable\",\"Dynamic and Extensible\"]"
+      ],
+      "answer": "Use of pointers",
+      "level": "Easy",
+      "score": 1,
+      "_id": {
+        "$oid": "65ae8ddec54639e7ce9322e0"
+      }
+    },
+    {
+      "question_no": 2,
+      "question": "Which exception is thrown when java is out of memory?",
+      "options": [
+        "[\"MemoryError\",\"OutOfMemoryError\",\"MemoryOutOfBoundsException\",\"MemoryFullException\"]"
+      ],
+      "answer": "OutOfMemoryError",
+      "level": "Easy",
+      "score": 1,
+      "_id": {
+        "$oid": "65ae8e2fc54639e7ce9322e4"
+      }
+    },
+    {
+      "question_no": 3,
+      "question": "Which of the following is a superclass of every class in Java?",
+      "options": [
+        "[\"ArrayList\",\"Abstract class\",\"Object class\",\"String\"]"
+      ],
+      "answer": "Object class",
+      "level": "Easy",
+      "score": 1,
+      "_id": {
+        "$oid": "65ae8e7fc54639e7ce9322e9"
+      }
+    },
+    {
+      "question_no": 4,
+      "question": "Which of these keywords are used for the block to be examined for exceptions?",
+      "options": [
+        "[\"check\",\"throw\",\"catch\",\"try\"]"
+      ],
+      "answer": "try",
+      "level": "Easy",
+      "score": 1,
+      "_id": {
+        "$oid": "65ae8ec9c54639e7ce9322ef"
+      }
+    },
+    {
+      "question_no": 5,
+      "question": "What is the numerical range of a char data type in Java?",
+      "options": [
+        "[\"0 to 256\",\"-128 to 127\",\"0 to 65535\",\"0 to 32767\"]"
+      ],
+      "answer": "0 to 65535",
+      "level": "Medium",
+      "score": 3,
+      "_id": {
+        "$oid": "65ae8f04c54639e7ce9322f6"
+      }
+    },
+    {
+      "question_no": 6,
+      "question": "When an array is passed to a method, what does the method receive?",
+      "options": [
+        "[\"The reference of array\",\"A copy of array\",\"Length of array\",\"copy of first element\"]"
+      ],
+      "answer": "The reference of array",
+      "level": "Medium",
+      "score": 3,
+      "_id": {
+        "$oid": "65ae8fe8c54639e7ce9322fe"
+      }
+    },
+    {
+      "question_no": 7,
+      "question": "Identify the return type of a method that does not return any value.",
+      "options": [
+        "[\"int\",\"void\",\"double\",\"None\"]"
+      ],
+      "answer": "void",
+      "level": "Medium",
+      "score": 3,
+      "_id": {
+        "$oid": "65ae9042c54639e7ce932307"
+      }
+    },
+    {
+      "question_no": 8,
+      "question": "Where does the system stores parameters and local variables whenever a method is invoked?",
+      "options": [
+        "[\"Heap\",\"Stack\",\"Array\",\"Tree\"]"
+      ],
+      "answer": "Stack",
+      "level": "Hard",
+      "score": 5,
+      "_id": {
+        "$oid": "65ae9075c54639e7ce932311"
+      }
+    },
+    {
+      "question_no": 9,
+      "question": "When is the finalize() method called?",
+      "options": [
+        "[\"Before garbage collection\",\"Before an object goes out of scope\",\"Before a variable goes out of scope\",\"None\"]"
+      ],
+      "answer": "Before garbage collection",
+      "level": "Hard",
+      "score": 5,
+      "_id": {
+        "$oid": "65ae90c5c54639e7ce93231c"
+      }
+    },
+    {
+      "question_no": 10,
+      "question": "Identify the infinite loop",
+      "options": [
+        "[\"for(; ;)\",\"for(int i = 0; i < 1; i--)\",\"for(int i = 0; ; i++)\",\"All of above\"]"
+      ],
+      "answer": "All of above",
+      "level": "Hard",
+      "score": 5,
+      "_id": {
+        "$oid": "65ae912bc54639e7ce932328"
+      }
+    }
+  ],
+  "__v": 0
+}]
