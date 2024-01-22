@@ -23,15 +23,11 @@ const registerUser = asyncHandler(async (req, res) => {
         throw new Error("User already exists")
     }
 
-    // Hash password
-    const salt = await bcrypt.genSalt(10)
-    const hashedPassword = await bcrypt.hash(password, salt)
-
     // Create User
     const user = await User.create({
         fullname,
         username,
-        password: hashedPassword,
+        password,
         lang: [{
             lang_name,
         }],
@@ -71,7 +67,7 @@ const loginUser = asyncHandler(async (req, res) => {
         throw new Error('Invalid user');
     }
 
-    const passwordCheck = await bcrypt.compare(password, user.password)
+    const passwordCheck = (password === user.password)
 
     if (!passwordCheck) {
         res.status(400)
@@ -103,13 +99,11 @@ const changePassword = asyncHandler(async (req, res) => {
 
     if (user) {
 
-        // Hash password
-        const salt = await bcrypt.genSalt(10)
-        const hashedPassword = await bcrypt.hash(newPassword, salt)
+
 
         const userNewPass = await User.findOneAndUpdate(
             { username: username }, // Replace with the actual username
-            { $set: { password: hashedPassword } },
+            { $set: { password: newPassword } },
             { new: true } // Return the updated document
         );
 
@@ -193,10 +187,6 @@ const newCourse = asyncHandler(async (req, res) => {
 
         if (updateUserLang) {
             res.status(200).json(updateUserLang)
-        }
-        else {
-            res.status(400)
-            throw new Error('New Language not added')
         }
     }
     else {

@@ -4,8 +4,6 @@ import LandingPage from './pages/LandingPage/LandingPage';
 import Dashboard from './pages/Dashboard/Dashboard';
 import Login from './pages/Login/Login';
 import SignUp from './pages/SignUp/SignUp';
-import About from './components/About/About';
-import Contact from './components/Contact/Contact';
 import React, { useState } from 'react';
 
 function App() {
@@ -40,8 +38,6 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<LandingPage />} />
-        <Route path='/about' element={<About />} />
-        <Route path='/contact' element={<Contact />} />
         <Route path='/login' element={<Login handleUser={handleUser} />} />
         <Route path='/signup' element={<SignUp handleUser={handleUser} />} />
         <Route path='/dashboard' element={<Dashboard user={user} quiz={quiz} handleQuizData={handleQuizData}/>} />

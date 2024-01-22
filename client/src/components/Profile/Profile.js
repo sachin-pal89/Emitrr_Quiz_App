@@ -4,6 +4,7 @@ import CPPIcon from '../../assets/images/CPPIcon.png'
 import JavaIcon from "../../assets/images/JavaIcon.png"
 import JavaScriptIcon from "../../assets/images/JavaScriptIcon.png"
 import { Progress } from "@material-tailwind/react";
+import axios from 'axios'
 
 const Profile = ({ user, quiz }) => {
 
@@ -12,6 +13,7 @@ const Profile = ({ user, quiz }) => {
   const [totalScore, setTotalScore] = useState(0);
   const [level, setLevel] = useState('Beginner');
   const [progress, setProgess] = useState(0);
+  const [userUpdate, setUserUpdate] = useState(user);
   
   const ImagePath = {
     Python: PythonIcon,
@@ -20,36 +22,47 @@ const Profile = ({ user, quiz }) => {
     JavaScript: JavaScriptIcon
   }
 
-
   const handleLang = (data) => {
 
     const langItem = JSON.parse(data);
     const newTotalScore = quiz.find((item) => item.lang_name === langItem.lang_name)?.total_score;
-    const progressPercentage = langItem.curr_question_no * 2
-    const userLevel = progressPercentage < 33 ? "Beginner" : ( progressPercentage < 66 ? "Intermediate" : "Advance");
-
+    const progressPercentage = newTotalScore == 0 ? 0 :(langItem.score / newTotalScore) * 100
+    const userLevel = (progressPercentage < 33  || progressPercentage === 0)? "Beginner" : ( progressPercentage < 66 ? "Intermediate" : "Advance");
+    
+    setProgess(progressPercentage ? progressPercentage : 0);
     setLang(langItem.lang_name);
     setScore(langItem.score);
     setTotalScore(newTotalScore ? newTotalScore : 0);
-    setProgess(progressPercentage);
     setLevel(userLevel)
   }
   
   const initialLang = () => {
     
-    const totalScore = quiz.find((item) => item.lang_name === user.lang[0].lang_name)?.total_score;
-    const progressPercentage = user.lang[0].curr_question_no * 2;
-    const userLevel = progressPercentage < 33 ? "Beginner" : ( progressPercentage < 66 ? "Intermediate" : "Advance");
+    const totalScore = quiz.find((item) => item.lang_name === userUpdate.lang[0].lang_name)?.total_score;
+    const progressPercentage =  totalScore == 0 ? 0 : (userUpdate.lang[0].score / totalScore) * 100
+    const userLevel = (progressPercentage < 33  || progressPercentage === 0) ? "Beginner" : ( progressPercentage < 66 ? "Intermediate" : "Advance");
 
-    setLang(user.lang[0].lang_name)
-    setScore(user.lang[0].score)
+    setProgess(progressPercentage ? progressPercentage : 0);
+    setLang(userUpdate.lang[0].lang_name)
+    setScore(userUpdate.lang[0].score)
     setTotalScore(totalScore ? totalScore : 0);
     setProgess(progressPercentage);
     setLevel(userLevel)
   }
 
+  const getUpdateduserData = async () => {
+
+    const response = await axios.post("http://localhost:5000/login", { username: user.username, password: user.password});
+
+    console.log(response.data);
+
+    if(response.data){
+      setUserUpdate(response.data);
+    }
+  }
   useEffect(() => {
     
+    getUpdateduserData();
     initialLang();
 
   }, [])
@@ -59,13 +72,13 @@ const Profile = ({ user, quiz }) => {
       <div className='w-full h-screen'>
         <div className='pt-25 pb-20 mx-40'>
           <div className='pt-40 pb-10 px-20 flex flex-col  text-center items-center'>
-            <p className='text-[50px] font-semibold tracking-wide text-blue-800'>{user.fullname}</p>
-            <p className='text-lg text-black font-semibold tracking-wide'>@{user.username}</p>
+            <p className='text-[50px] font-semibold tracking-wide text-blue-800'>{userUpdate.fullname}</p>
+            <p className='text-lg text-black font-semibold tracking-wide'>@{userUpdate.username}</p>
             <select name="language" id="language" 
                     className='w-[30%] mt-4 py-1 text-center border-2 rounded-lg'
                     onChange={(e) => handleLang(e.target.value)}
             >
-              {user.lang.map((langItem) => (
+              {userUpdate.lang.map((langItem) => (
                 <option key={langItem.lang_name}
                         value={JSON.stringify(langItem)} 
                         className='text-sm p-1 text-blue-500 font-bold tracking-wide mt-4'

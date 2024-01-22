@@ -2,13 +2,17 @@ import React, { useState } from 'react'
 import LanguageSelect from '../LanguageSelect/LanguageSelect';
 import Instructions from '../Instructions/Instructions';
 import QuizQuestion from '../QuizQuestion/QuizQuestion';
+import axios from 'axios';
 
 const Quiz = ({ quiz, user}) => {
 
   const [stage, setStage] = useState('langselect');
   const [lang, setLang] = useState('Python');
 
-  const handleLangSelection = (val) => {
+  const handleLangSelection = async (val) => {
+
+      const response = await axios.post("http://localhost:5000/newCourse", {username: user.username, lang_name: val})
+
       setLang(val);
   }
 
