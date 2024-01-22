@@ -1,4 +1,5 @@
 import User from "../models/userModel.js";
+import Lang from "../models/langModel.js";
 import asyncHandler from 'express-async-handler';
 import bcrypt from 'bcryptjs';
 
@@ -62,17 +63,17 @@ const loginUser = asyncHandler(async (req, res) => {
         res.status(400)
         throw new Error('Invalid username or password')
     }
-    
+
     const user = await User.findOne({ username })
 
-    if(!user) {
+    if (!user) {
         res.status(400)
         throw new Error('Invalid user');
     }
 
     const passwordCheck = await bcrypt.compare(password, user.password)
 
-    if(!passwordCheck){
+    if (!passwordCheck) {
         res.status(400)
         throw new Error('Invalid password');
     }
@@ -107,7 +108,7 @@ const changePassword = asyncHandler(async (req, res) => {
         const hashedPassword = await bcrypt.hash(newPassword, salt)
 
         const userNewPass = await User.findOneAndUpdate(
-            { username: username}, // Replace with the actual username
+            { username: username }, // Replace with the actual username
             { $set: { password: hashedPassword } },
             { new: true } // Return the updated document
         );
@@ -125,14 +126,51 @@ const changePassword = asyncHandler(async (req, res) => {
     }
 })
 
+//@desc update score for user language
+//@route POST /lang/updateScore
+//@access public
+const updateScore = asyncHandler(async (req, res) => {
+
+    const { username, lang_name, score, curr_question_no } = req.body
+
+    if (!username || !lang_name || !score || !curr_question_no) {
+        res.status(400)
+        throw new Error('Provide complete details')
+    }
+
+    // Get the user first
+    const user = await User.findOne({ username })
+
+    if (user) {
+
+        // update the score and curr_question_no
+        let updateUserScore = await User.updateOne(
+            { username: username, 'lang.lang_name': lang_name },
+            { $set: { 'lang.$.score': score, 'lang.$.curr_question_no': curr_question_no}},
+        );
+
+        if(updateUserScore){
+            res.status(200).json(updateUserScore);
+        }
+        else {
+            res.status(400)
+            throw new Error("No such language Quiz present")
+        }
+    }
+    else {
+        res.status(400)
+        throw new Error("No such User")
+    }
+})
+
 //@desc add new course for user
 //@route POST /newCourse
 //@access public
-const newCourse = asyncHandler( async (req, res) => {
+const newCourse = asyncHandler(async (req, res) => {
 
     const { username, lang_name } = req.body
 
-    if(!username || !lang_name) {
+    if (!username || !lang_name) {
         res.status(400)
         throw new Error('Provide proper details')
     }
@@ -140,7 +178,7 @@ const newCourse = asyncHandler( async (req, res) => {
     // Get the user first 
     const user = await User.findOne({ username })
 
-    if(user) {
+    if (user) {
 
         const newLangQuiz = {
             lang_name: lang_name,
@@ -149,11 +187,11 @@ const newCourse = asyncHandler( async (req, res) => {
         }
 
         const updateUserLang = await User.updateOne(
-            { username: username, 'lang.lang_name': { $ne: lang_name}},
-            { $push: { lang: newLangQuiz }},
+            { username: username, 'lang.lang_name': { $ne: lang_name } },
+            { $push: { lang: newLangQuiz } },
         )
 
-        if(updateUserLang){
+        if (updateUserLang) {
             res.status(200).json(updateUserLang)
         }
         else {
@@ -170,30 +208,31 @@ const newCourse = asyncHandler( async (req, res) => {
 //@desc reset courses
 //@route POST /resetCourse
 //@access public
-const resetCourse = asyncHandler( async (req, res) => {
+const resetCourse = asyncHandler(async (req, res) => {
 
     const { username, lang_name } = req.body
 
-    if(!username || !lang_name) {
+    if (!username || !lang_name) {
         res.status(400)
         throw new Error("Give complete details")
     }
 
     const user = await User.findOne({ username })
 
-    if(user){
+    if (user) {
 
         const userResetLang = await User.findOneAndUpdate(
-            {username: username, 'lang.lang_name': lang_name},
-            {$set: {
+            { username: username, 'lang.lang_name': lang_name },
+            {
+                $set: {
                     'lang.$.score': 0,
                     'lang.$.curr_question_no': 0
                 },
             },
-            {new: true}
+            { new: true }
         );
 
-        if(userResetLang){
+        if (userResetLang) {
             res.status(200).json(userResetLang);
         } else {
             res.status(400)
@@ -219,4 +258,4 @@ const getUser = asyncHandler(async (req, res) => {
     }
 })
 
-export { registerUser, loginUser, changePassword, newCourse, resetCourse, getUser }
+export { registerUser, loginUser, changePassword, updateScore, newCourse, resetCourse, getUser }

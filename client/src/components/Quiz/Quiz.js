@@ -28,7 +28,7 @@ const Quiz = ({ quiz, user}) => {
       break;
     
     case 'quizQuestion':
-      componentToRenderQuiz = <QuizQuestion handleStagePhases={handleStagePhases}/>;
+      componentToRenderQuiz = <QuizQuestion user={user} quiz={quiz} lang={lang} handleStagePhases={handleStagePhases}/>;
       break;
     
     case 'compeleted':

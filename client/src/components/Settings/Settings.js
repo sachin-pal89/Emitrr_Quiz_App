@@ -5,7 +5,8 @@ import 'react-notifications/lib/notifications.css';
 import { NotificationContainer } from 'react-notifications';
 import { NotificationManager } from 'react-notifications';
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const Settings = ({ user }) => {
 
@@ -81,6 +82,15 @@ const Settings = ({ user }) => {
     setLang(user.lang[0].lang_name)
   }
 
+  const handleLogout = () => {
+    // Clear user and quiz data from localStorage
+    localStorage.removeItem('user');
+    localStorage.removeItem('quiz');
+
+    // Navigate to the login page
+    navigate('/login');
+  };
+
   useEffect(() => {
     
     initialLang();
@@ -155,6 +165,12 @@ const Settings = ({ user }) => {
               <div>
               </div>
             )}
+            <div className='flex flex-row items-center cursor-pointer'
+              onClick={handleLogout}
+            >
+              <LogoutIcon sx={{ fontSize: 28 }} />
+              <p className='text-[20px] font-bold p-4'>Logout</p>
+            </div>
           </div>
         </div>
       </div>
