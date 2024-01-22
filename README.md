@@ -26,8 +26,9 @@ Backend Installation
 
 ```bash
   1. cd server
-  2. npm i 
-  3. npm run dev
+  2. npm i
+  3. set MONGO_URI in .env file
+  4. npm run dev
 ``` 
 ## Features
 
